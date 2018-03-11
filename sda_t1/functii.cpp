@@ -37,8 +37,6 @@ void insertIner(int pos, int val, Element *&cap)
 void stergere(int pos, Element *&cap)
 {
 	Element *p, *q;
-	p = new Element;
-	q = new Element;
 	q = cap;
 	if (pos == 0)
 	{

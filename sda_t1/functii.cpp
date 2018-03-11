@@ -18,14 +18,13 @@ void afisare(Element *cap)
 	}
 	std::cout << std::endl;
 }
-void insertIner(int pos, int val, Element *&cap)
+void insertIner(int val, Element *&cap, int pos)
 {
 	Element *q,*p;
-	q= new Element;
 	q = cap;
 	p = new Element;
 	p->data = val;
-	while (pos-1)
+	while (pos - 1 && q->leg)
 	{
 		pos--;
 		q = q->leg;
@@ -38,7 +37,12 @@ void stergere(int pos, Element *&cap)
 {
 	Element *p, *q;
 	q = cap;
-	if (pos == 0)
+	if(pos<1)
+	{
+		std::cout << "eroare";
+		return;
+	}
+	if (pos == 1)
 	{
 		p = cap;
 		cap = cap->leg;
@@ -46,7 +50,7 @@ void stergere(int pos, Element *&cap)
 	}
 	else
 	{
-		while (pos - 1)
+		while (pos - 1 && q->leg)
 		{
 			pos--;
 			q = q->leg;
